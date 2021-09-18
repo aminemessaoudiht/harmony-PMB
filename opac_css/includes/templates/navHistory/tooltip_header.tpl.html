@@ -1,0 +1,18 @@
+<!-- $Id: tooltip_header.tpl.html,v 1.1.2.2 2021/06/11 10:32:29 qvarin Exp $ -->
+
+{% if item %}
+	<div id="header_tooltip">
+		<span>{{ item.date }} - {{ item.title }}</span><br />
+		{% if search.hidden_form %}
+			<br />
+			{{ search.human_query }}<br />
+			{{ search.hidden_form }}
+			<button type="button" id="tooltip_submit_form" data-form_name="search_{{ item.search.nb_queries }}">{{ msg.open_link_url }}</button>
+		{% else %}
+			<form action="{{ item.link }}" method="POST">
+				<input type="hidden" name="navId" value="{{ item.id }}">
+				<button type="submit" id="tooltip_submit_form">{{ msg.open_link_url }}</button>
+			</form>
+		{% endif %}
+	</div>
+{% endif %}
