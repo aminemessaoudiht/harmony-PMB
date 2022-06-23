@@ -4,7 +4,7 @@ namespace App\Services;
 
 
 use App\Contracts\DriverContractInterface;
-use App\Models\Notice;
+use App\Models\Pmb\Notice;
 
 class PmbDriverService implements  DriverContractInterface
 {

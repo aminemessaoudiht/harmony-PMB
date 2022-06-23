@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\DriverContractInterface;
-use App\Models\Notice;
+use App\Models\Pmb\Notice;
 use Illuminate\Support\Facades\DB;
 
 class NoticeController extends Controller
@@ -20,10 +20,6 @@ class NoticeController extends Controller
         $this->driver = $driverService;
     }
 
-//    public function get_notice() {
-//        $notices = Notice::paginate($this->limite);
-//        return  response()->json(['notices' => $notices]);
-//    }
     public function  getNotices(): \Illuminate\Http\JsonResponse
     {
         return  response()->json(['notices' => $this->driver->getNotices()],200);
@@ -32,4 +28,5 @@ class NoticeController extends Controller
     {
         return response()->json(['notice' => $this->driver->getNoticeById($id)],200);
     }
+
 }

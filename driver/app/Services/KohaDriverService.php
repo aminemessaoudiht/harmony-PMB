@@ -4,7 +4,7 @@
 namespace App\Services;
 
 use App\Contracts\DriverContractInterface;
-use App\Models\Doc;
+use App\Models\Koha\BiblioItems;
 
 class KohaDriverService implements  DriverContractInterface
 {
@@ -16,12 +16,12 @@ class KohaDriverService implements  DriverContractInterface
 
     public function getNotices()
     {
-        return Doc::paginate($this->limite);
+        return BiblioItems::paginate($this->limite);
     }
 
     public function getNoticeById(int $id)
     {
-        return Doc::where('doc_id', $id)->get();
+        return BiblioItems::where('biblioitemnumber', $id)->get();
     }
 
     public function getNoticesByAuthor(int $id)
